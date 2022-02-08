@@ -78,6 +78,33 @@ function toCamelCase(str) {
     return firstWord + firstLetterUpper.join('')
 }
 
+function duplicateEncode(word){
+    let newString = ''
+    let wordToLower = word.toLowerCase()
+    for(let i = 0; i < word.length; i++) {
+        let charFilter = [...wordToLower].filter(x => x == wordToLower[i])
+        charFilter.length == 1 ? newString += '(' : newString += ')'
+    }
+    return newString
+}
+
+function likes(names) {
+    switch(names.length){
+        case 0: return "no one likes this";
+        case 1: return `${names[0]} likes this`;
+        case 2: return `${names[0]} and ${names[1]} like this`;
+        case 3: return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+        default: return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
+    }
+  }
+
+  console.log(likes(['nsipj', 'fw2lf']))
+
+
+
+
+
+
 
 
 
