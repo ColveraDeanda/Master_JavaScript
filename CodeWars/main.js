@@ -70,7 +70,7 @@ function toCamelCase(str) {
     str.replace()
     if (str.length === 0) return str;
     let splitted = str.split('-')
-    if(splitted.length == 1) {
+    if (splitted.length == 1) {
         splitted = str.split('_')
     }
     let firstWord = splitted.shift()
@@ -78,10 +78,10 @@ function toCamelCase(str) {
     return firstWord + firstLetterUpper.join('')
 }
 
-function duplicateEncode(word){
+function duplicateEncode(word) {
     let newString = ''
     let wordToLower = word.toLowerCase()
-    for(let i = 0; i < word.length; i++) {
+    for (let i = 0; i < word.length; i++) {
         let charFilter = [...wordToLower].filter(x => x == wordToLower[i])
         charFilter.length == 1 ? newString += '(' : newString += ')'
     }
@@ -89,16 +89,42 @@ function duplicateEncode(word){
 }
 
 function likes(names) {
-    switch(names.length){
+    switch (names.length) {
         case 0: return "no one likes this";
         case 1: return `${names[0]} likes this`;
         case 2: return `${names[0]} and ${names[1]} like this`;
         case 3: return `${names[0]}, ${names[1]} and ${names[2]} like this`;
         default: return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`
     }
-  }
+}
 
-  console.log(likes(['nsipj', 'fw2lf']))
+function sumStrings(a, b) {
+    return (BigInt(a) + BigInt(b)).toString()
+
+}
+
+
+/* MI SOLUCIUON*/ 
+function dirreccion(arr) {
+    let count = 0
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == 'NORTH' && arr[i + 1] == 'SOUTH' || arr[i] == 'SOUTH' && arr[i + 1] == 'NORTH') {
+            arr.splice(i, 2)
+            count++;
+            i--;
+        } else if(arr[i] == 'WEST' && arr[i + 1] == 'EAST' || arr[i] == 'EAST' && arr[i + 1] == 'WEST' ){
+            arr.splice(i, 2)
+            count++;
+            i--;
+        }
+    }
+    return count === 0 ? arr : dirreccion(arr)
+    
+}
+dirreccion(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"])
+
+
+
 
 
 
