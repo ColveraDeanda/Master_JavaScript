@@ -104,7 +104,7 @@ function sumStrings(a, b) {
 }
 
 
-/* MI SOLUCIUON*/ 
+/* MI SOLUCIUON*/
 function dirreccion(arr) {
     let count = 0
     for (let i = 0; i < arr.length; i++) {
@@ -112,16 +112,27 @@ function dirreccion(arr) {
             arr.splice(i, 2)
             count++;
             i--;
-        } else if(arr[i] == 'WEST' && arr[i + 1] == 'EAST' || arr[i] == 'EAST' && arr[i + 1] == 'WEST' ){
+        } else if (arr[i] == 'WEST' && arr[i + 1] == 'EAST' || arr[i] == 'EAST' && arr[i + 1] == 'WEST') {
             arr.splice(i, 2)
             count++;
             i--;
         }
     }
     return count === 0 ? arr : dirreccion(arr)
-    
+
 }
-dirreccion(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"])
+// dirreccion(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"])
+
+function filter_list(numbersAndStrings) {
+    return numbersAndStrings.filter(Number.isInteger)
+}
+
+function binaryToNumber(arr){
+    return parseInt(arr.join(''), 2)
+    
+
+}
+console.log(binaryToNumber([1, 1, 1, 1]))
 
 
 
