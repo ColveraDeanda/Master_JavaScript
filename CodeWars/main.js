@@ -132,9 +132,18 @@ function binaryToNumber(arr){
     
 
 }
-console.log(binaryToNumber([1, 1, 1, 1]))
+//console.log(binaryToNumber([1, 1, 1, 1]))
 
+function minMax(arr){
+    if(arr.length == 1) return [arr[0], arr[0]]
+    let arrSorted = []
+    arrSorted = arr.sort((a, b ) => a - b)
+    return [arr[0], arr[arrSorted.length - 1]]
+  }
 
+  // minMax([4,3])
+  //minMax([2334454,5])
+  console.log(minMax([4,1,6,100,8]))
 
 
 
