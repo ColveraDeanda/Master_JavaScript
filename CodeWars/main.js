@@ -158,7 +158,54 @@ function areEquals(stringOrArray) {
     return equal
 }
 
-console.log(areEquals(''))
+function correct(string) {
+    // Splitear el string.
+    // Recorrer mi arreglo con un for y usar in IF para comparar si ese elemento es un 0, 1, 5
+    // Dentro del IF usar splice para eliminar el elemento actual e ingresar la letra correct.
+    // Convertir a String ese Arreglo final spliteado.
+    let str_splitted = string.split('')
+    for (let i = 0; i < str_splitted.length; i++) {
+        if (str_splitted[i] == '0') {
+            str_splitted.splice(i, 1, 'O')
+        }
+        if (str_splitted[i] == '1') {
+            str_splitted.splice(i, 1, 'I')
+        }
+        if (str_splitted[i] == '5') {
+            str_splitted.splice(i, 1, 'S')
+        }
+    }
+    return str_splitted.join('')
+}
+//correct('ADC000051')
+
+function greet(name, owner) {
+    console.log(name === owner ? 'Hello boss' : 'Hello guest')
+}
+
+   // Hacer doble for para que vaya recorriendo cada elemento con todo el array y en caso
+    // De que el numero se repita (i == j), aumentar un contador. El contador se inicializa despues del primer for, cont = 0
+    // Si ese contador es par, se tendra que pushear en un nuevo array nuestro elemento que estamos buscando repetidos.
+    // Ese cont se pone fuera del 2do for.
+function oddOnesOut(arrayFamilies) {
+    let evenFamilies = []
+    if(arrayFamilies.length == 0) {return evenFamilies}
+    for(let i = 0; i < arrayFamilies.length; i++){
+        let count = 0
+        for(let j = 0; j < arrayFamilies.length; j++){
+            if(arrayFamilies[i] === arrayFamilies[j]){
+                count++
+            }
+        }
+        if(count % 2 == 0){evenFamilies.push(arrayFamilies[i])}
+    }
+    return evenFamilies
+}
+
+
+
+
+
 
 
 
