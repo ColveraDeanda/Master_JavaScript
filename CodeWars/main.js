@@ -127,33 +127,38 @@ function filter_list(numbersAndStrings) {
     return numbersAndStrings.filter(Number.isInteger)
 }
 
-function binaryToNumber(arr){
+function binaryToNumber(arr) {
     return parseInt(arr.join(''), 2)
-    
+
 
 }
 //console.log(binaryToNumber([1, 1, 1, 1]))
 
-function minMax(arr){
-    if(arr.length == 1) return [arr[0], arr[0]]
+function minMax(arr) {
+    if (arr.length == 1) return [arr[0], arr[0]]
     let arrSorted = []
-    arrSorted = arr.sort((a, b ) => a - b)
+    arrSorted = arr.sort((a, b) => a - b)
     return [arr[0], arr[arrSorted.length - 1]]
-  }
+}
 
-  // minMax([4,3])
-  //minMax([2334454,5])
-  console.log(minMax([4,1,6,100,8]))
-
+// minMax([4,3])
+//minMax([2334454,5])
 
 
+function areEquals(stringOrArray) {
+    if (stringOrArray.length == 0) return true
+    let equal = true
+    let rep = stringOrArray.length - 1;
+    for (let i = 0; i < rep; i++) {
+        if (stringOrArray[i] !== stringOrArray[i + 1]) {
+            equal = false
+            break;
+        }
+    }
+    return equal
+}
 
-
-
-
-
-
-
+console.log(areEquals(''))
 
 
 
