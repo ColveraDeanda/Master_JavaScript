@@ -34,7 +34,7 @@ function absentVowel(string) {
 function onesComplement(n) {
     return [...n].map(item => item == 1 ? item = 0 : 1)
 };
-//onesComplement(1001) 
+console.log(onesComplement('1001') )
 
 
 /*
