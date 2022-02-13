@@ -34,7 +34,7 @@ function absentVowel(string) {
 function onesComplement(n) {
     return [...n].map(item => item == 1 ? item = 0 : 1)
 };
-console.log(onesComplement('1001') )
+console.log(onesComplement('1001'))
 
 
 /*
@@ -183,26 +183,66 @@ function greet(name, owner) {
     console.log(name === owner ? 'Hello boss' : 'Hello guest')
 }
 
-   // Hacer doble for para que vaya recorriendo cada elemento con todo el array y en caso
-    // De que el numero se repita (i == j), aumentar un contador. El contador se inicializa despues del primer for, cont = 0
-    // Si ese contador es par, se tendra que pushear en un nuevo array nuestro elemento que estamos buscando repetidos.
-    // Ese cont se pone fuera del 2do for.
+// Hacer doble for para que vaya recorriendo cada elemento con todo el array y en caso
+// De que el numero se repita (i == j), aumentar un contador. El contador se inicializa despues del primer for, cont = 0
+// Si ese contador es par, se tendra que pushear en un nuevo array nuestro elemento que estamos buscando repetidos.
+// Ese cont se pone fuera del 2do for.
 function oddOnesOut(arrayFamilies) {
     let evenFamilies = []
-    if(arrayFamilies.length == 0) {return evenFamilies}
-    for(let i = 0; i < arrayFamilies.length; i++){
+    if (arrayFamilies.length == 0) { return evenFamilies }
+    for (let i = 0; i < arrayFamilies.length; i++) {
         let count = 0
-        for(let j = 0; j < arrayFamilies.length; j++){
-            if(arrayFamilies[i] === arrayFamilies[j]){
+        for (let j = 0; j < arrayFamilies.length; j++) {
+            if (arrayFamilies[i] === arrayFamilies[j]) {
                 count++
             }
         }
-        if(count % 2 == 0){evenFamilies.push(arrayFamilies[i])}
+        if (count % 2 == 0) { evenFamilies.push(arrayFamilies[i]) }
     }
     return evenFamilies
 }
 
 
+// Agregar yourPoints al array de puntos de toda la clase.
+// sacar la suma total del array y dividirlo entre numero de elementos. Con esto se saca el promedio.
+// Si misPuntos son mayor a promedio, devolver un true, sino devolver false.
+function betterThanAverage(classPoints, yourPoints) {
+    classPoints.push(yourPoints)
+    let average = (classPoints.reduce((acum, item) => acum + item, 0)) / classPoints.length
+    return yourPoints > average ? true : false
+}
+
+
+// Primero splitear mi arreglo 
+// Luego con un for, recorrer el arreglo y poner el primer if = Si en algun elemento encuentra un "(", 
+// se guardara en una nueva variable, (start).
+// Despues del 1er if, poner otro If =  Si en algun elemento encuentra un ")",
+// Se guardara en una nueva variable, (end)
+// Se usara el metodo splice para recortar ese arreglo, teniendo en cuenta el rango de start y end.
+function removeParentheses(string) {
+    let start = 0;
+    let end = 0;
+    let deleteCount = 0
+    let str_splitted = string.split('')
+    for (let i = 0; i < str_splitted.length; i++) {
+        if (str_splitted[i] === '(') {
+            start = i
+        }
+        if(str_splitted[i] === ')'){
+            end = i
+            break
+        }
+    }
+    deleteCount = (end - start) + 1;
+    str_splitted.splice(start, deleteCount)
+    if(str_splitted.join('').includes('(') == true) {
+        return removeParentheses(str_splitted.join(''))
+    } else {
+        return str_splitted.join('')
+    }
+  
+   
+}
 
 
 
