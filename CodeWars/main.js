@@ -34,7 +34,6 @@ function absentVowel(string) {
 function onesComplement(n) {
     return [...n].map(item => item == 1 ? item = 0 : 1)
 };
-console.log(onesComplement('1001'))
 
 
 /*
@@ -240,9 +239,48 @@ function removeParentheses(string) {
     } else {
         return str_splitted.join('')
     }
-  
-   
 }
+
+
+let funcSuma = (num1, num2) => num1 + num2
+let funcSuma2 = (num1, num2) => {
+    let res = num1 + num2
+    return res
+}
+
+let isMayor = (a, b) => a > b ? a : b
+let multi = n => n * 10
+let saludo = () => "Hola guapo"
+
+
+// Hacer un ciclo de los elementos para pacer un Nuevo arreglo de todos los numeros impares.
+// Ordenar ese arreglo de numeros impares
+// Al arreglo de impares, se le va a ingresar cada numero par del arreglo orifinal usando un ciclo
+let sortArray = array => {
+    let oddArray = []
+    for(let i = 0; i < array.length; i++) {
+        if(array[i] % 2 != 0) {
+            oddArray.push(array[i])
+        }
+    }
+
+    let oddOrder = oddArray.sort((a,b) => a - b)
+
+    for(let j = 0; j < array.length; j++) {
+        if(array[j] % 2 == 0) {
+            oddArray.splice(j, 0, array[j])
+        }
+    }
+
+    return oddOrder
+
+}
+
+console.log(sortArray([5, 8, 6, 3, 4] ))
+console.log(sortArray([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]))
+            
+                  
+
 
 
 
