@@ -11,7 +11,7 @@ let myDog = {
     name: 'nombre',
     legs: 3,
     tails: 1,
-    'my Friends': [1,2,3,4],
+    'my Friends': [1, 2, 3, 4],
     100: 50
 }
 // console.log(myDog.name)
@@ -41,7 +41,7 @@ function anyFunc(value) {
     res = lookup[value]
     return res
 }
-console.log(anyFunc('bravo'))
+// console.log(anyFunc('bravo'))
 
 /// hasOwnProperty = Sirve para verificar si existe una propiedad dentro del objeto.
 function checkObj(obj, checkProp) {
@@ -59,42 +59,116 @@ Si value es una cadena vacía, elimina esa propiedad prop del álbum.
 //
 const recordCollection = {
     2548: {
-      albumTitle: 'Slippery When Wet',
-      artist: 'Bon Jovi',
-      tracks: ['Let It Rock', 'You Give Love a Bad Name']
+        albumTitle: 'Slippery When Wet',
+        artist: 'Bon Jovi',
+        tracks: ['Let It Rock', 'You Give Love a Bad Name']
     },
     2468: {
-      albumTitle: '1999',
-      artist: 'Prince',
-      tracks: ['1999', 'Little Red Corvette']
+        albumTitle: '1999',
+        artist: 'Prince',
+        tracks: ['1999', 'Little Red Corvette']
     },
     1245: {
-      artist: 'Robert Palmer',
-      tracks: []
+        artist: 'Robert Palmer',
+        tracks: []
     },
     5439: {
-      albumTitle: 'ABBA Gold'
+        albumTitle: 'ABBA Gold'
     }
-  };
-  
-  // Cambia solo el código debajo de esta línea
-  function updateRecords(records, id, prop, value) {
-      if(prop !== 'tracks' && value.length != 0) {
-          records[id][prop] = value
-      } else if(prop === 'tracks' && records[id].hasOwnProperty('tracks') == false && value.length != 0) {
-          records[id][prop] = [value]
-      } else if(prop === 'tracks' && value.length != 0) {
-          records[id][prop].push(value)
-      } else if(value.length == 0) {
-          delete records[id][prop]
-      }
+};
+
+// Cambia solo el código debajo de esta línea
+function updateRecords(records, id, prop, value) {
+    if (prop !== 'tracks' && value.length != 0) {
+        records[id][prop] = value
+    } else if (prop === 'tracks' && records[id].hasOwnProperty('tracks') == false && value.length != 0) {
+        records[id][prop] = [value]
+    } else if (prop === 'tracks' && value.length != 0) {
+        records[id][prop].push(value)
+    } else if (value.length == 0) {
+        delete records[id][prop]
+    }
     return records;
-  }
+}
 
-  //updateRecords(recordCollection, 5439, "artist", "ABBA");
-  //console.log(recordCollection)
+//updateRecords(recordCollection, 5439, "artist", "ABBA");
+//console.log(recordCollection)
+
+function sum(arr, n) {
+    // Cambia solo el código debajo de esta línea
+    if (n <= 0) {
+        return 0
+    } else {
+        return sum(arr, n - 1) + arr[n - 1]
+    }
+    // Cambia solo el código encima de esta línea
+}
+
+// console.log(sum([2, 3, 4, 5], 3))
+
+
+// Setup
+const contacts = [
+    {
+        firstName: "Akira",
+        lastName: "Laine",
+        number: "0543236543",
+        likes: ["Pizza", "Coding", "Brownie Points"],
+    },
+    {
+        firstName: "Harry",
+        lastName: "Potter",
+        number: "0994372684",
+        likes: ["Hogwarts", "Magic", "Hagrid"],
+    },
+    {
+        firstName: "Sherlock",
+        lastName: "Holmes",
+        number: "0487345643",
+        likes: ["Intriguing Cases", "Violin"],
+    },
+    {
+        firstName: "Kristian",
+        lastName: "Vos",
+        number: "unknown",
+        likes: ["JavaScript", "Gaming", "Foxes"],
+    },
+];
+
+// function lookUpProfile(name, prop) {
+//     let exist = false
+//     for (let i = 0; i < contacts.length; i++) {
+//         if (contacts[i]['firstName'] === name && contacts[i].hasOwnProperty(prop) == true) {
+//             exist = true
+//             return contacts[i][prop]
+//         }
+//     }
+//     for (let j = 0; j < contacts.length; j++) {
+//         if(contacts[j]['firstName'] === name && contacts[j][prop] == undefined){
+//             return 'No such property'
+//         }
+//     }
+//     if (!exist){
+//         return 'No such contact'
+//     }  
+//   }
+
+function lookUpProfile(name, prop) {
+  for (let x = 0; x < contacts.length; x++) {
+    if (contacts[x].firstName === name) {
+      if (contacts[x].hasOwnProperty(prop)) {
+        return contacts[x][prop];
+      } else {
+        return "No such property";
+      }
+    }
+  } 
+  return "No such contact";
+}
+
+// console.log(lookUpProfile("Kristian", "lastName"))
+// console.log(lookUpProfile("Sherlock", "likes"))
 
 
 
-  
 
