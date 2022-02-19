@@ -154,20 +154,99 @@ const contacts = [
 //   }
 
 function lookUpProfile(name, prop) {
-  for (let x = 0; x < contacts.length; x++) {
-    if (contacts[x].firstName === name) {
-      if (contacts[x].hasOwnProperty(prop)) {
-        return contacts[x][prop];
-      } else {
-        return "No such property";
-      }
+    for (let x = 0; x < contacts.length; x++) {
+        if (contacts[x].firstName === name) {
+            if (contacts[x].hasOwnProperty(prop)) {
+                return contacts[x][prop];
+            } else {
+                return "No such property";
+            }
+        }
     }
-  } 
-  return "No such contact";
+    return "No such contact";
 }
 
 // console.log(lookUpProfile("Kristian", "lastName"))
 // console.log(lookUpProfile("Sherlock", "likes"))
+
+/** RECURSIVIDAD  */
+function contar(n) {
+    for (let i = n; i >= 1; i--) {
+        console.log(i)
+    }
+}
+
+function contarRecursivo(n) {
+    let res = 0
+    if (n == 0) return 0; // return hara que la funcion termine.
+    res = n + contarRecursivo(n - 1)
+    return res
+}
+
+console.log(contarRecursivo(3))
+/*
+ Para que la recursividad funciona:
+   1. Tiene que tener una decision donde se termine el proceso.
+   2. Se ejecuta el codigo y el proceso que queremos.
+   3. Se llama a la funcion pero se decrementa alguna variable para que se corte en algun punto.
+*/
+function factorial(n) {
+    if (n == 0 || n == 1) return 1;
+    let res = 1
+    for (let i = n; i >= 1; i--) {
+        res *= i
+    }
+    return res
+}
+
+
+function factorialRecursivo(n) {
+    let res = 1
+    if (n == 0 || n == 1) return 1;
+    res = n * factorialRecursivo(n - 1)
+    return res
+}
+
+/**
+ * Hemos definido una función llamada countdown con un parámetro (n). La función debe usar recursión para devolver
+ *  un arreglo conteniendo los n enteros hasta 1 basado en el parámetro n. Si la función es llamada con un número 
+ * menor a 1, la función debe devolver un arreglo vacío. Por ejemplo, llamar esta función con n = 5 debe devolver 
+ * el arreglo [5, 4, 3, 2, 1]. Tu función debe usar recursión llamándose a sí misma y no debe usar bucles de 
+ * ningún tipo.
+ */
+function countdown(n) {
+    if (n < 1) return []
+    let arr = countdown(n - 1)
+    arr.push(n)
+    let arrr = arr.sort((a, b) => b - a)
+    return arrr
+}
+
+
+function rangeOfNumbers(startNum, endNum) {
+    let arr = []
+    for (let i = startNum; i <= endNum; i++) {
+        arr.push(i)
+    }
+    return arr
+};
+
+function rangeOfRecursive(startNum, endNum) {
+    if (startNum == endNum + 1) return []
+
+    let arr = rangeOfRecursive(startNum + 1, endNum)
+    arr.unshift(startNum)
+    return arr
+};
+console.log(rangeOfRecursive(4, 10))
+
+
+
+
+
+
+
+
 
 
 
