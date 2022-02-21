@@ -1,7 +1,9 @@
 // Hay 2 formas de import, 1 poniendo especoficamente el metodo / modulo / variable que queramos:
 import { op_math, op_math2 } from './export.js'
 // O se puede importar todo lo que se esta exportando del archivo indicado.
-import * as myMathModule from './export.js'
+import * as myMathModule from './export.js' // MuModule se tomara como un objecto.
+
+import biblioteca from './export.js'  // como es una exportacion default, no se usan llaves {}
 
 const num1 = 100
 const num2 = 200
