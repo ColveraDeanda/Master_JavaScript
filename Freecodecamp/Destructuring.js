@@ -28,18 +28,18 @@ let { today: { low: lowToday, high: highToday } } = LOCAL_FORECAST
 console.log(lowToday, highToday);
 
 // Destructurando variables y arreglos:
-let a = 8 
+let a = 8
 let b = 6;
 let [num1, num2] = [b, a];
 console.log(num1, num2)
 
-let otroArray = [1,2,3,4,5,6]
-const [i,j, ...k] = otroArray
-console.log(i,j,k)
+let otroArray = [1, 2, 3, 4, 5, 6]
+const [i, j, ...k] = otroArray
+console.log(i, j, k)
 
 // Una forma de desestructurar un arreglo es usando la tecnica rest
-let numeros = [1,2,3,4,5,6,6,7]
-let [aa, bb , cc , ...newArray] = numeros
+let numeros = [1, 2, 3, 4, 5, 6, 6, 7]
+let [aa, bb, cc, ...newArray] = numeros
 console.log(aa, bb, cc, newArray)
 
 
@@ -51,13 +51,32 @@ const stats = {
     mode: 23.87,
     min: -0.75,
     average: 35.85
-  };
-  const half = ({max, min}) =>  {
-      return (max + min) / 2.0; 
-  }
+};
+const half = ({ max, min }) => {
+    return (max + min) / 2.0;
+}
+console.log(half(stats))
 
-  console.log(half(stats))
 
+// Craciion de un objeto literal
+const getMousePosition = (x, y) => ({
+    x: x,
+    y: y
+});
+
+// Abreavido seria:
+const getMousePositionn = (x, y) => ({ x, y });
+console.log(getMousePositionn('hola,', 1000))
+
+
+// Funciones dentro de objetos
+const otroObject = {
+    nombre: 'Cristobal',
+    getEdad() {
+        return 23
+    }
+}
+console.log(otroObject.getEdad())
 
 
 
