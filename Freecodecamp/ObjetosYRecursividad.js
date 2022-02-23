@@ -241,6 +241,16 @@ function rangeOfRecursive(startNum, endNum) {
 console.log(rangeOfRecursive(4, 10))
 
 
+// Aparte del metodo hasOwnProperty() tambien se puede verificar la propiedad de un objeto 
+// Con la palabra clave in
+const student = {
+    nombre: 'Cris',
+    '100d': 45
+}
+console.log(student.hasOwnProperty('nombre'))
+console.log('nombre' in student)
+console.log('100d' in student)
+
 
 
 
