@@ -6,7 +6,7 @@ let op_math = (a,b) => {
 }
 
 // Se puede hacer asi:
-let op_math2 = (a,b) => {
+export let op_math2 = (a,b) => {
     return a * b
 }
 

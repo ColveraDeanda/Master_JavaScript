@@ -47,28 +47,28 @@ let filteredArray = (arr, elem) => {
 }
 
 
-// // Ejemplo de array multidimensional de 6 niveles.
-// let arrayyy = [
-//     ['unshift', false, 1, 2, 3, 'complex', 'nested'],
-//     [
-//         ['loop', 'deep', 6, 7, 1000, 'method'],
-//         ['concat', false, true, 'spread', 'array']
-//     ],
-//     [
-//         [
-//             ['mutate', 1327.98, 'deeper', 'slice', 'push']
-//         ]
-//     ],
-//     [
-//         [
-//             [
-//                 [
-//                     ['iterate', 1.3849, 7, '8.4876', 'deepest', 'depth']
-//                 ]
-//             ]
-//         ]
-//     ]
-// ]
+// Ejemplo de array multidimensional de 6 niveles.
+let arrayyy = [
+    ['unshift', false, 1, 2, 3, 'complex', 'nested'],
+    [
+        ['loop', 'deep', 6, 7, 1000, 'method'],
+        ['concat', false, true, 'spread', 'array']
+    ],
+    [
+        [
+            ['mutate', 1327.98, 'deeper', 'slice', 'push']
+        ]
+    ],
+    [
+        [
+            [
+                [
+                    ['iterate', 1.3849, 7, '8.4876', 'deepest', 'depth']
+                ]
+            ]
+        ]
+    ]
+]
 
 // Aparte del metodo hasOwnProperty() tambien se puede verificar la propiedad de un objeto 
 // Con la palabra clave in
@@ -103,7 +103,7 @@ const studentsWithFor = (studentObj) => {
     let count = 0
     for (let user in studentObj) {
         console.log(user)
-        if (studentObj[user].trabajo === true) {
+        if (studentObj[user].trabajo) {
             arr.push(studentObj[user])
             count++
         }
@@ -111,7 +111,64 @@ const studentsWithFor = (studentObj) => {
     console.log(arr)
     count
 }
+// studentsWithFor(students)
 
-studentsWithFor(students)
+// Object.keys = Guardara en un array de strings las claves del objeto.
+console.log(Object.keys(students))
 
 
+let user = {
+    name: 'Kenneth',
+    age: 28,
+    data: {
+      username: 'kennethCodesAllDay',
+      joinDate: 'March 26, 2016',
+      organization: 'freeCodeCamp',
+      friends: [
+        'Sam',
+        'Kira',
+        'Tomo'
+      ],
+      location: {
+        city: 'San Francisco',
+        state: 'CA',
+        country: 'USA'
+      }
+    }
+  };
+  
+  function addFriend(userObj, friend) {
+    const friends = userObj.data.friends
+    friends.push(friend)
+    return friends
+  }
+  //console.log(addFriend(user, 'Pete'));
+
+  function findLongestWordLength(str) {
+    str = str.split(' ')
+    wordLength = str.map((word) => word.length)
+    return Math.max(...wordLength)
+  }
+  //console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+
+  function largestOfFour(arr) {
+    let largestArray = []
+    for(let i = 0; i < arr.length; i++) {
+        largestArray.push(Math.max(...arr[i]))
+    }
+    return largestArray;
+  }
+  // console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+
+
+  function repeatStringNumTimes(str, num) {
+    if (num < 0) return '';
+    let string = ''
+    for(let i = 0; i < num; i++){
+      string += str
+    }
+    console.log(string)
+    return string;
+  }
+  
+  repeatStringNumTimes("*", 3);

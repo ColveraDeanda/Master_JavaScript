@@ -276,9 +276,21 @@ let sortArray = array => {
 
 }
 
-console.log(sortArray([5, 8, 6, 3, 4] ))
-console.log(sortArray([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]))
-            
+let getSmallerString = (arr, str) => {
+    let smallerStr = "";
+    for(let i = 0; i < arr.length; i++) {
+        for(let j = 0; j < str.length; j++) {
+            if(arr[i] === str[j]) {
+                smallerStr += arr[i];
+                break;
+            }
+        }
+    }
+    return smallerStr.split('').reverse().join('');
+}
+
+console.log(getSmallerString(['x', 'y', 'z'], 'abcxy'))
+
                   
 
 
