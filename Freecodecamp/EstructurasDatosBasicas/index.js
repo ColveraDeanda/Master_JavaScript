@@ -121,100 +121,100 @@ let user = {
     name: 'Kenneth',
     age: 28,
     data: {
-      username: 'kennethCodesAllDay',
-      joinDate: 'March 26, 2016',
-      organization: 'freeCodeCamp',
-      friends: [
-        'Sam',
-        'Kira',
-        'Tomo'
-      ],
-      location: {
-        city: 'San Francisco',
-        state: 'CA',
-        country: 'USA'
-      }
+        username: 'kennethCodesAllDay',
+        joinDate: 'March 26, 2016',
+        organization: 'freeCodeCamp',
+        friends: [
+            'Sam',
+            'Kira',
+            'Tomo'
+        ],
+        location: {
+            city: 'San Francisco',
+            state: 'CA',
+            country: 'USA'
+        }
     }
-  };
-  
-  function addFriend(userObj, friend) {
+};
+
+function addFriend(userObj, friend) {
     const friends = userObj.data.friends
     friends.push(friend)
     return friends
-  }
-  //console.log(addFriend(user, 'Pete'));
+}
+//console.log(addFriend(user, 'Pete'));
 
-  function findLongestWordLength(str) {
+function findLongestWordLength(str) {
     str = str.split(' ')
     wordLength = str.map((word) => word.length)
     return Math.max(...wordLength)
-  }
-  //console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+}
+//console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
 
-  function largestOfFour(arr) {
+function largestOfFour(arr) {
     let largestArray = []
-    for(let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         largestArray.push(Math.max(...arr[i]))
     }
     return largestArray;
-  }
-  // console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+}
+// console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
 
 
-  function repeatStringNumTimes(str, num) {
+function repeatStringNumTimes(str, num) {
     if (num < 0) return '';
     let string = ''
-    for(let i = 0; i < num; i++){
-      string += str
+    for (let i = 0; i < num; i++) {
+        string += str
     }
     console.log(string)
     return string;
-  }
-  
-  //repeatStringNumTimes("*", 3);
+}
 
-  function truncateString(str, num) {
-    if(str.length == num || str.length < num) return str
+//repeatStringNumTimes("*", 3);
+
+function truncateString(str, num) {
+    if (str.length == num || str.length < num) return str
     let truncateStr = str.slice(0, num)
     return truncateStr.concat('...')
-  }
-  
-  function findElement(arr, func) {
+}
+
+function findElement(arr, func) {
     for (let i = 0; i < arr.length; i++) {
-        if(func(arr[i])){
+        if (func(arr[i])) {
             return arr[i]
         }
     }
     return undefined
-  }
-  
+}
+
 console.log(findElement([1, 3, 5, 9], num => num % 2 === 0));
 
 function booWho(bool) {
-    if(typeof bool === 'boolean' ){
+    if (typeof bool === 'boolean') {
         return true
     } else {
         return false
     }
-  }
+}
 
-  function titleCase(str) {
+function titleCase(str) {
     let strArr = str.split(' ')
-    for(let i = 0; i < strArr.length; i++){
+    for (let i = 0; i < strArr.length; i++) {
         strArr[i] = strArr[i].charAt(0).toUpperCase() + strArr[i].slice(1).toLowerCase();
     }
     return strArr.join(' ')
-  }
+}
 
-  // console.log(titleCase('Im a little tea pot'))
+// console.log(titleCase('Im a little tea pot'))
 
-  function frankenSplice(arr1, arr2, n) {
+function frankenSplice(arr1, arr2, n) {
     let [...copyArr2] = arr2
     copyArr2.splice(n, 0, ...arr1)
     return copyArr2
-  }
-  
-  frankenSplice([1, 2, 3], [4, 5, 6], 1);
+}
+
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
 
 const bouncer = (arr) => {
     return arr.filter((item) => Boolean(item))
@@ -224,19 +224,33 @@ const bouncer = (arr) => {
 
 function getIndexToIns(arr, num) {
     arr.push(num)
-    let arrSorted = arr.sort((a,b) => a - b)
+    let arrSorted = arr.sort((a, b) => a - b)
     return arrSorted.indexOf(num)
-  }
+}
 
-  function mutation(arr) {
+function mutation(arr) {
     arr[0] = arr[0].toLowerCase()
     arr[1] = arr[1].toLowerCase()
-    for(let i = 0; i < arr[1].length; i++){
-        if(!arr[0].includes(arr[1].charAt(i))){
+    for (let i = 0; i < arr[1].length; i++) {
+        if (!arr[0].includes(arr[1].charAt(i))) {
             return false
         }
     }
     return true
-  }
-  
-  
+}
+
+function chunkArrayInGroups(arr, size) {
+    let groupArr = []
+    let start = 0
+    let end = size
+    for (let i = 0; i < arr.length; i+=size) {
+        let tempArr = arr.slice(start, end)
+        groupArr.push(tempArr)
+        start += size
+        end += size
+    }
+    return groupArr
+}
+
+  console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+
