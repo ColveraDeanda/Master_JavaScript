@@ -171,4 +171,40 @@ let user = {
     return string;
   }
   
-  repeatStringNumTimes("*", 3);
+  //repeatStringNumTimes("*", 3);
+
+  function truncateString(str, num) {
+    if(str.length == num || str.length < num) return str
+    let truncateStr = str.slice(0, num)
+    return truncateStr.concat('...')
+  }
+  
+  function findElement(arr, func) {
+    for (let i = 0; i < arr.length; i++) {
+        if(func(arr[i])){
+            return arr[i]
+        }
+    }
+    return undefined
+  }
+  
+console.log(findElement([1, 3, 5, 9], num => num % 2 === 0));
+
+function booWho(bool) {
+    if(typeof bool === 'boolean' ){
+        return true
+    } else {
+        return false
+    }
+  }
+
+  function titleCase(str) {
+    let strArr = str.split(' ')
+    for(let i = 0; i < strArr.length; i++){
+        strArr[i] = strArr[i].charAt(0).toUpperCase() + strArr[i].slice(1).toLowerCase();
+    }
+    return strArr.join(' ')
+  }
+
+  console.log(titleCase('Im a little tea pot'))
+
