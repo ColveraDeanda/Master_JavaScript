@@ -206,5 +206,37 @@ function booWho(bool) {
     return strArr.join(' ')
   }
 
-  console.log(titleCase('Im a little tea pot'))
+  // console.log(titleCase('Im a little tea pot'))
 
+  function frankenSplice(arr1, arr2, n) {
+    let [...copyArr2] = arr2
+    copyArr2.splice(n, 0, ...arr1)
+    return copyArr2
+  }
+  
+  frankenSplice([1, 2, 3], [4, 5, 6], 1);
+
+const bouncer = (arr) => {
+    return arr.filter((item) => Boolean(item))
+}
+
+//console.log(bouncer([false, null, 0, NaN, undefined, ""]));
+
+function getIndexToIns(arr, num) {
+    arr.push(num)
+    let arrSorted = arr.sort((a,b) => a - b)
+    return arrSorted.indexOf(num)
+  }
+
+  function mutation(arr) {
+    arr[0] = arr[0].toLowerCase()
+    arr[1] = arr[1].toLowerCase()
+    for(let i = 0; i < arr[1].length; i++){
+        if(!arr[0].includes(arr[1].charAt(i))){
+            return false
+        }
+    }
+    return true
+  }
+  
+  
