@@ -75,3 +75,22 @@ let miniG = new miniGato()
 miniGato.prototype.constructor = miniGato
 
 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/** Haciendo una propiedad de un objeto privada  */
+function bird() {
+    let volar = true
+
+    this.getStatus = function () {
+        return volar
+    }
+}
+
+const obj = new bird()
+console.log(obj.getStatus())
+
+// Sinatxis paara una funcion anonima que se ejecuta automaticamente
+(function () {
+    console.log('Funcion anonima!!!!')
+}()) // . Los dos paréntesis () al final de la expresión de la función hacen que se ejecute o invoque de forma inmediata
