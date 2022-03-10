@@ -292,7 +292,15 @@ let getSmallerString = (arr, str) => {
 console.log(getSmallerString(['x', 'y', 'z'], 'abcxy'))
 
                   
-
+function removeSmallest(numbers) {
+    if(numbers.length == 0) {return}
+    let arr = [...numbers]
+    arr.sort((a,b) => a - b)
+    arr.shift()
+    console.log(arr)
+    return arr
+  }
+  removeSmallest([5, 3, 2, 1, 4])
 
 
 

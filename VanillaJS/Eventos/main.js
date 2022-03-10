@@ -1,4 +1,4 @@
-const events = []
+let events = []
 let currentFormatDate = null
 let eventFormatDate = null;
 
@@ -85,10 +85,8 @@ function eventDateFormat() {
 }
 
 let deleteEvent = id => {
-    // Buscar el indice del arreglo events de acuerdo al id con findIndex()
-    // Usar splice para eliminar el elemento
-    // Llamar de nuevo a renderEvents para cargar los elementos.
-            
+    events = events.filter(event => event.id !== id)
+    eventsRender()
 }
 
 
