@@ -227,14 +227,14 @@ function removeParentheses(string) {
         if (str_splitted[i] === '(') {
             start = i
         }
-        if(str_splitted[i] === ')'){
+        if (str_splitted[i] === ')') {
             end = i
             break
         }
     }
     deleteCount = (end - start) + 1;
     str_splitted.splice(start, deleteCount)
-    if(str_splitted.join('').includes('(') == true) {
+    if (str_splitted.join('').includes('(') == true) {
         return removeParentheses(str_splitted.join(''))
     } else {
         return str_splitted.join('')
@@ -258,16 +258,16 @@ let saludo = () => "Hola guapo"
 // Al arreglo de impares, se le va a ingresar cada numero par del arreglo orifinal usando un ciclo
 let sortArray = array => {
     let oddArray = []
-    for(let i = 0; i < array.length; i++) {
-        if(array[i] % 2 != 0) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 != 0) {
             oddArray.push(array[i])
         }
     }
 
-    let oddOrder = oddArray.sort((a,b) => a - b)
+    let oddOrder = oddArray.sort((a, b) => a - b)
 
-    for(let j = 0; j < array.length; j++) {
-        if(array[j] % 2 == 0) {
+    for (let j = 0; j < array.length; j++) {
+        if (array[j] % 2 == 0) {
             oddArray.splice(j, 0, array[j])
         }
     }
@@ -278,9 +278,9 @@ let sortArray = array => {
 
 let getSmallerString = (arr, str) => {
     let smallerStr = "";
-    for(let i = 0; i < arr.length; i++) {
-        for(let j = 0; j < str.length; j++) {
-            if(arr[i] === str[j]) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < str.length; j++) {
+            if (arr[i] === str[j]) {
                 smallerStr += arr[i];
                 break;
             }
@@ -291,20 +291,35 @@ let getSmallerString = (arr, str) => {
 
 console.log(getSmallerString(['x', 'y', 'z'], 'abcxy'))
 
-                  
+
 function removeSmallest(numbers) {
-    if(numbers.length == 0) {return}
+    if (numbers.length == 0) { return }
     let arr = [...numbers]
-    arr.sort((a,b) => a - b)
+    arr.sort((a, b) => a - b)
     arr.shift()
     console.log(arr)
     return arr
-  }
-  removeSmallest([5, 3, 2, 1, 4])
+}
+removeSmallest([5, 3, 2, 1, 4])
 
 
 
+function solve(s) { 
+    const lowerLetters = ['a', 'b', 'c', 'd', 'e', 'f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    const upperLetters = ['A', 'B', 'C', 'D', 'E', 'F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
+    const lowerCase = [...s].filter(elem => lowerLetters.includes(elem))
+    const upperCase = [...s].filter(elem => upperLetters.includes(elem))
+    
+    if(lowerCase.length === upperCase.length || lowerCase.length > upperCase.length) {
+        return s.toLowerCase();
+    } else  {
+        return s.toUpperCase();
+    }
+}
+
+console.log(solve("CoDE"))
+console.log(solve("CODe"))
 
 
 
