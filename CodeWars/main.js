@@ -318,8 +318,44 @@ function solve(s) {
     }
 }
 
-console.log(solve("CoDE"))
-console.log(solve("CODe"))
+function randdomSort(arr) {
+    let random = [];
+    const length = arr.length;
+    for(let i = 0; i < 10; i++) {
+        let randomIndex = Math.floor(Math.random() * arr.length);
+        randomIndex
+        random.push(arr[randomIndex]);
+        arr.splice(randomIndex, 1);
+    }
+    return random;
+}
+
+////////////////////////////////////////////////////////////
+function i(word) {
+    if(word[0] !== 'I' && word[0] !== 'i'){
+      if(totalOfVowels(word) < word.length - totalOfVowels(word)){
+        if(word[0] == word[0].toUpperCase()){
+          return  `i${word}`;
+        }
+      }
+    }  
+    
+    return 'Invalid word';
+  }
+  
+  function totalOfVowels(word) {
+    let vowels = [...word].filter(elem => {
+      if(elem === 'a' || elem === 'A' || elem === 'e' || elem === 'E' || elem === 'i' || elem === 'I' || elem === 'o' || elem === 'O' || elem === 'u' || elem === 'U'){
+        return elem
+      };
+    });
+    
+    return vowels.length;
+  }
+
+  console.log(i('iInspire'))
+
+  console.log(totalOfVowels('iInspire'))
 
 
 
