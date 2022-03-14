@@ -304,16 +304,16 @@ removeSmallest([5, 3, 2, 1, 4])
 
 
 
-function solve(s) { 
-    const lowerLetters = ['a', 'b', 'c', 'd', 'e', 'f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-    const upperLetters = ['A', 'B', 'C', 'D', 'E', 'F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+function solve(s) {
+    const lowerLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    const upperLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
     const lowerCase = [...s].filter(elem => lowerLetters.includes(elem))
     const upperCase = [...s].filter(elem => upperLetters.includes(elem))
-    
-    if(lowerCase.length === upperCase.length || lowerCase.length > upperCase.length) {
+
+    if (lowerCase.length === upperCase.length || lowerCase.length > upperCase.length) {
         return s.toLowerCase();
-    } else  {
+    } else {
         return s.toUpperCase();
     }
 }
@@ -321,7 +321,7 @@ function solve(s) {
 function randdomSort(arr) {
     let random = [];
     const length = arr.length;
-    for(let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
         let randomIndex = Math.floor(Math.random() * arr.length);
         randomIndex
         random.push(arr[randomIndex]);
@@ -332,36 +332,50 @@ function randdomSort(arr) {
 
 ////////////////////////////////////////////////////////////
 function i(word) {
-    if(word[0] !== 'I' && word[0] !== 'i'){
-      if(totalOfVowels(word) < word.length - totalOfVowels(word)){
-        if(word[0] == word[0].toUpperCase()){
-          return  `i${word}`;
+    if (word[0] !== 'I' && word[0] !== 'i') {
+        if (totalOfVowels(word) < word.length - totalOfVowels(word)) {
+            if (word[0] == word[0].toUpperCase()) {
+                return `i${word}`;
+            }
         }
-      }
-    }  
-    
+    }
+
     return 'Invalid word';
-  }
-  
-  function totalOfVowels(word) {
+}
+
+function totalOfVowels(word) {
     let vowels = [...word].filter(elem => {
-      if(elem === 'a' || elem === 'A' || elem === 'e' || elem === 'E' || elem === 'i' || elem === 'I' || elem === 'o' || elem === 'O' || elem === 'u' || elem === 'U'){
-        return elem
-      };
+        if (elem === 'a' || elem === 'A' || elem === 'e' || elem === 'E' || elem === 'i' || elem === 'I' || elem === 'o' || elem === 'O' || elem === 'u' || elem === 'U') {
+            return elem
+        };
     });
-    
+
     return vowels.length;
-  }
+}
 
-  console.log(i('iInspire'))
-
-  console.log(totalOfVowels('iInspire'))
-
-
-
-
+function busStops(arr) {
+    const totalInBus = arr.reduce((acc, elem) => acc + elem[0], 0)
+    const getOffBus = arr.reduce((acc, elem) => acc + elem[1], 0)
+    return totalInBus - getOffBus;
+}
 
 
+// busStops([[10,0],[3,5],[5,8]])
+
+
+function order(words) {
+    let order = []
+    let arrWords = words.split(' ')
+    console.log(arrWords)
+
+    for(let i = 1; i <= arrWords.length; i++) {
+        let elem = arrWords.find(elem => elem.includes(i.toString()))
+        order.push(elem)
+    }
+    return order;
+}
+
+console.log(order("is2 Thi1s T4est 3a"))
 
 
 
