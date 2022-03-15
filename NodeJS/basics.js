@@ -1,4 +1,7 @@
 var path = require("path")
+var v8 = require('v8')
+var util = require('util')
+var os = require('os');
 
 // Variables globales
 console.log(__dirname) // Get absolute path of the folder where the current JavaScript file resides.
@@ -20,4 +23,11 @@ process.stdin.on('data', (data) => {
     let nombre = data.toString();
     process.stdout.write(`Tu nombre es: ${nombre}`);
     process.exit();
-})
+});
+
+console.log(path.join(__dirname, '/fichero', '/students'))
+
+console.log(v8.getHeapStatistics())
+
+console.log(os.hostname())
+console.log(os.cpus())

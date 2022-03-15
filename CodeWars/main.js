@@ -397,7 +397,16 @@ function arrByPar(string) {
     return arr;
 }
 
-console.log(splitStrings("abvcdcgbhn"))
+//console.log(splitStrings("abvcdcgbhn"))
+
+function reverseLetter(str) {
+    let letterArray = str.split("")
+    const letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    let filterByChar = letterArray.filter(elem => letters.includes(elem)); 
+    return filterByChar.reverse();
+  }
+
+
 
 
 
