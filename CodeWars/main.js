@@ -368,15 +368,36 @@ function order(words) {
     let arrWords = words.split(' ')
     console.log(arrWords)
 
-    for(let i = 1; i <= arrWords.length; i++) {
+    for (let i = 1; i <= arrWords.length; i++) {
         let elem = arrWords.find(elem => elem.includes(i.toString()))
         order.push(elem)
     }
     return order;
 }
 
-console.log(order("is2 Thi1s T4est 3a"))
+//console.log(order("is2 Thi1s T4est 3a"))
 
+let splitStrings = (string) => {
+    if (string.length % 2 === 0) {
+        return arrByPar(string);
+    } else {
+        return arrByPar(string)
+    }
+
+}
+
+function arrByPar(string) {
+    let arr = [];
+    for (let i = 0; i < string.length; i++) {
+        if (i % 2 === 0) {
+            let elem = string[i + 1] || "_";
+            arr.push(string[i] + elem);
+        }
+    }
+    return arr;
+}
+
+console.log(splitStrings("abvcdcgbhn"))
 
 
 
