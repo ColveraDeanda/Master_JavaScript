@@ -30,8 +30,12 @@ rl.on('line', (input) => { // El evento line se desparara cada vez que se presio
 function printComments() {
     console.log('Tus comentarios son:');
     let comments = [...personas.comentarios];
-    comments.map(value => {
-        console.log(value)
-    });
+    for(let i = 0; i < comments.length; i++) {
+        console.log(`Tu comentario es: ${comments[i]}`)
+    }
 }
 
+
+
+
+  

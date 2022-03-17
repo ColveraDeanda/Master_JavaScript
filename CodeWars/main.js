@@ -401,13 +401,100 @@ function arrByPar(string) {
 
 function reverseLetter(str) {
     let letterArray = str.split("")
-    const letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-    let filterByChar = letterArray.filter(elem => letters.includes(elem)); 
+    const letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    let filterByChar = letterArray.filter(elem => letters.includes(elem));
     return filterByChar.reverse();
-  }
+}
 
 
 
 
+const items = [
+    { name: 'sfsdf', value: 67 },
+    { name: 'Edward', value: 500 },
+    { name: 'And', value: 45 },
+    { name: 'The', value: -12 },
+    { name: 'Edward', value: 5 },
+    { name: 'Edward', value: 100 }
+];
 
+// sort by name
+items.sort(function (a, b) {
+    const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+    const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+    const valueA = a.value;
+    const valueB = b.value
+
+    if (nameA < nameB) {
+        return -1;
+    }
+    if (nameA > nameB) {
+        return 1;
+    }
+    // names must be equal
+    console.log('Nombres iguales...')
+    return valueA - valueB;
+});
+
+console.log(items)
+
+///////////////////////////
+/*
+1. Transformar string a un array de objetos.
+2. sortear el array.
+3. mapear el array de objetos con el formato () y a mayusculas
+3. Convertir mapeo a string.
+*/
+
+// "Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill"
+
+var arrFriends = [];
+function meeting(s) {
+    arrFriends = []
+    let friends = s.split(";")
+    for(let i = 0; i < friends.length; i++) {
+        let splitName = friends[i].split(':')
+        createArrFriends(splitName)
+    }
+    sortFriends(arrFriends)
+    return arrFriends.map(friend => {
+        return `(${friend.surname.toUpperCase()}, ${friend.name.toUpperCase()})`
+    }).join("").trim();
+}
+
+function createArrFriends(friend) {
+    let objFriend = {
+        name: friend[0], 
+        surname: friend[1] 
+    }
+    arrFriends.push(objFriend);
+    return arrFriends;
+}
+
+function sortFriends(arr) {
+    arr.sort(function (a, b) {
+        const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+        const nameB = b.name.toUpperCase(); 
+        const surnameA = a.surname.toUpperCase();
+        const surnameB = b.surname.toUpperCase();
+    
+         // Sort by surname
+         if (surnameA < surnameB) {
+            return -1;
+        }
+        if (surnameA > surnameB) {
+            return 1;
+        }
+
+        // Sort by Name
+        if (nameA < nameB) {
+            return -1; // < 0: sort a before b.
+        }
+        if (nameA > nameB) {
+            return 1;   // > 0: sort b before a.
+        }
+    });
+}
+
+console.log(meeting("John:Gates;Michael:Wahl;Megan:Bell;Paul:Dorries;James:Dorny;Lewis:Steve;Alex:Meta;Elizabeth:Russel;Anna:Korn;Ann:Kern;Amber:Cornwell"))
 
