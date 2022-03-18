@@ -14,6 +14,7 @@ if(process.argv.length > 2) {
     process.argv.splice(0, 2)
     printProccess(process.argv[0], process.argv[1])
 }
+
 function printProccess(name, surname) {
     console.log(`Your name is ${name} \nYour surname is ${surname}`)
 }
@@ -31,3 +32,6 @@ console.log(v8.getHeapStatistics())
 
 console.log(os.hostname())
 console.log(os.cpus())
+
+
+// module.exports = printProccess

@@ -35,7 +35,9 @@ function printComments() {
     }
 }
 
-
+// Temas que tambien estudie: 
+// events con eventEmitter: Cuando se ejecutan objetos en NodeJS, emiten un evento. Estos se pueden "escuchar" para que se ejecute cierto codigo.
+// module.exports = personas: Se puede exportar practicamente lo que sea para su uso en otros ficheros.
 
 
   

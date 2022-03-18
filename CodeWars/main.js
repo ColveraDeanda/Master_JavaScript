@@ -289,15 +289,11 @@ let getSmallerString = (arr, str) => {
     return smallerStr.split('').reverse().join('');
 }
 
-console.log(getSmallerString(['x', 'y', 'z'], 'abcxy'))
-
-
 function removeSmallest(numbers) {
     if (numbers.length == 0) { return }
     let arr = [...numbers]
     arr.sort((a, b) => a - b)
     arr.shift()
-    console.log(arr)
     return arr
 }
 removeSmallest([5, 3, 2, 1, 4])
@@ -432,11 +428,8 @@ items.sort(function (a, b) {
         return 1;
     }
     // names must be equal
-    console.log('Nombres iguales...')
     return valueA - valueB;
 });
-
-console.log(items)
 
 ///////////////////////////
 /*
@@ -496,5 +489,40 @@ function sortFriends(arr) {
     });
 }
 
-console.log(meeting("John:Gates;Michael:Wahl;Megan:Bell;Paul:Dorries;James:Dorny;Lewis:Steve;Alex:Meta;Elizabeth:Russel;Anna:Korn;Ann:Kern;Amber:Cornwell"))
+/*
+1. Splitear el string tomando las vocales como separador.
+2. Hacer un for en donde recorrera todos los elementos del array spliteado y en cada iteracion
+   mandar a llamar otra funcion que retornara el value de esa consonante/s.
+3. Si el retorno de la funcion es mayor que highValue, entonces gurdar nuevo valor en esa misma
+   variable.
+*/
+function highConsonantValue(s) {
+    let arrConsonants = s.split(/[aeiou]/gi)
+    let highValue = 0
+    for(let i = 0; i < arrConsonants.length; i++) {
+        let value = consonantValue(arrConsonants[i])
+        if(value > highValue){
+            highValue = value;
+        }
+    }
+    return highValue
+}
+
+function consonantValue(consonant) {
+    let value = 0;
+    const alphabet = { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, g: 7, h: 8, i: 9, j: 10, k: 11, l: 12, m: 13, n: 14, o: 15, p: 16, q: 17, r: 18, s: 19, t: 20, u: 21, v: 22, w: 23, x: 24, y: 25, z: 26 }
+    if(consonant.length == 1) {
+        return alphabet[consonant];
+    } else {
+        let elemArr = consonant.split("")
+        for(let i = 0; i < elemArr.length; i++) {
+            value += alphabet[elemArr[i]];
+        }
+        return value
+    }
+}
+
+console.log(highConsonantValue('strength'))
+
+
 
