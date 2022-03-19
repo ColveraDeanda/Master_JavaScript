@@ -522,7 +522,27 @@ function consonantValue(consonant) {
     }
 }
 
-console.log(highConsonantValue('strength'))
+// console.log(highConsonantValue('strength'))
+
+function toWeirdCase(string){
+    let weirdArr = []
+    let lettersArr = string.split(' ');
+    for(let i = 0; i < lettersArr.length; i++) {
+        if(i > 0) {
+            weirdArr.push(' ');
+        }
+        for(let j = 0; j < lettersArr[i].length; j++) {
+            let letter = lettersArr[i][j]
+            if(j % 2 == 0) {
+                letter = letter.toUpperCase();
+                weirdArr.push(letter)
+            } else {
+                letter = letter.toLowerCase();
+                weirdArr.push(letter)
+            }
+        }
+    }
+  }
 
 
 
