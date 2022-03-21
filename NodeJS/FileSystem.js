@@ -8,7 +8,7 @@ fs.readdir('./', (err, files) => {
     console.log(files)
     // let archivo = fs.readFileSync('./file.txt', 'utf-8'); // Leer archivos de manera sincrona
 
-    fs.readFile('./file.txt', 'utf-8', (err, data) => {
+    fs.readFile('./files/file.txt', 'utf-8', (err, data) => {
         if (err) {
             throw err
         }
@@ -16,7 +16,7 @@ fs.readdir('./', (err, files) => {
     });
 })
 
-const file = './testFile.txt';
+const file = './files/testFile.txt';
 // Validando si archivo existe de manera sincrona. (Opcion 1)
 // if(fs.existsSync(file)) {
 //     console.log('Existe');
@@ -29,27 +29,27 @@ fs.access(file, fs.constants.F_OK, (err) => {
     if (err) {
         // Para escribir (editar) un archivo seria: (Si el archivo no existe, se crea uno.)
         let content = 'Este es mi contenido desde NodeJS.'
-        fs.writeFile('./testFile.txt', content, (err) => {
+        fs.writeFile('./files/testFile.txt', content, (err) => {
             if (err) throw ('ERROR');
-            fs.readFile('./testFile.txt', 'utf-8', (err, data) => {
+            fs.readFile('./files/testFile.txt', 'utf-8', (err, data) => {
                 console.log(data);
             })
         });
     } else {
-        fs.appendFile('./testFile.txt', '\nAnother line', (err) => {
+        fs.appendFile('./files/testFile.txt', '\nAnother line', (err) => {
             if (err) throw err;
-            fs.readFile('./testFile.txt', 'utf-8', (err, data) => {
+            fs.readFile('./files/testFile.txt', 'utf-8', (err, data) => {
                 console.log(data);
             })
         })
     }
 });
 
-
-if (fs.existsSync('css')) {
+// Crear un nuevo directorio (carpeta)
+if (fs.existsSync('./files/css')) {
     console.log('La carpeta CSS ya existe...');
 } else {
-    fs.mkdir('css', (err) => {
+    fs.mkdir('./files/css', (err) => {
         if (err) {
             throw (err);
         }
@@ -57,6 +57,6 @@ if (fs.existsSync('css')) {
     });
 }
 
-// Crear un nuevo directorio (carpeta)
+
 
 
