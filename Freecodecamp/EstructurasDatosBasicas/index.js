@@ -149,7 +149,7 @@ function findLongestWordLength(str) {
     wordLength = str.map((word) => word.length)
     return Math.max(...wordLength)
 }
-//console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
+console.log(findLongestWordLength("The quick brown fox jumped over the lazy dog"));
 
 function largestOfFour(arr) {
     let largestArray = []

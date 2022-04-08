@@ -445,7 +445,7 @@ var arrFriends = [];
 function meeting(s) {
     arrFriends = []
     let friends = s.split(";")
-    for(let i = 0; i < friends.length; i++) {
+    for (let i = 0; i < friends.length; i++) {
         let splitName = friends[i].split(':')
         createArrFriends(splitName)
     }
@@ -457,8 +457,8 @@ function meeting(s) {
 
 function createArrFriends(friend) {
     let objFriend = {
-        name: friend[0], 
-        surname: friend[1] 
+        name: friend[0],
+        surname: friend[1]
     }
     arrFriends.push(objFriend);
     return arrFriends;
@@ -467,12 +467,12 @@ function createArrFriends(friend) {
 function sortFriends(arr) {
     arr.sort(function (a, b) {
         const nameA = a.name.toUpperCase(); // ignore upper and lowercase
-        const nameB = b.name.toUpperCase(); 
+        const nameB = b.name.toUpperCase();
         const surnameA = a.surname.toUpperCase();
         const surnameB = b.surname.toUpperCase();
-    
-         // Sort by surname
-         if (surnameA < surnameB) {
+
+        // Sort by surname
+        if (surnameA < surnameB) {
             return -1;
         }
         if (surnameA > surnameB) {
@@ -499,9 +499,9 @@ function sortFriends(arr) {
 function highConsonantValue(s) {
     let arrConsonants = s.split(/[aeiou]/gi)
     let highValue = 0
-    for(let i = 0; i < arrConsonants.length; i++) {
+    for (let i = 0; i < arrConsonants.length; i++) {
         let value = consonantValue(arrConsonants[i])
-        if(value > highValue){
+        if (value > highValue) {
             highValue = value;
         }
     }
@@ -511,11 +511,11 @@ function highConsonantValue(s) {
 function consonantValue(consonant) {
     let value = 0;
     const alphabet = { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, g: 7, h: 8, i: 9, j: 10, k: 11, l: 12, m: 13, n: 14, o: 15, p: 16, q: 17, r: 18, s: 19, t: 20, u: 21, v: 22, w: 23, x: 24, y: 25, z: 26 }
-    if(consonant.length == 1) {
+    if (consonant.length == 1) {
         return alphabet[consonant];
     } else {
         let elemArr = consonant.split("")
-        for(let i = 0; i < elemArr.length; i++) {
+        for (let i = 0; i < elemArr.length; i++) {
             value += alphabet[elemArr[i]];
         }
         return value
@@ -524,16 +524,16 @@ function consonantValue(consonant) {
 
 // console.log(highConsonantValue('strength'))
 
-function toWeirdCase(string){
+function toWeirdCase(string) {
     let weirdArr = []
     let lettersArr = string.split(' ');
-    for(let i = 0; i < lettersArr.length; i++) {
-        if(i > 0) {
+    for (let i = 0; i < lettersArr.length; i++) {
+        if (i > 0) {
             weirdArr.push(' ');
         }
-        for(let j = 0; j < lettersArr[i].length; j++) {
+        for (let j = 0; j < lettersArr[i].length; j++) {
             let letter = lettersArr[i][j]
-            if(j % 2 == 0) {
+            if (j % 2 == 0) {
                 letter = letter.toUpperCase();
                 weirdArr.push(letter)
             } else {
@@ -542,7 +542,32 @@ function toWeirdCase(string){
             }
         }
     }
+}
+
+
+let reverseWords = (str) => str.split(' ').reverse().join(' ');
+
+function checkExam(array1, array2) {
+    let points = 0
+    for(let i = 0; i < array1.length; i++) {
+        if(array1[i] === array2[i]) {
+            points += 4;
+        } else if(array2[i].length > 0 && array1[i] !== array2[i]) {
+            points -= 1;
+        }
+    }
+    return points < 0 ? 0 : points
+}
+
+
+function inAscOrder(arr) {
+    for(let i = 0; i < arr.length - 1; i++) {
+        if(arr[i] > arr[i + 1]) {
+            return false
+        }
+    }
+    return true
   }
 
-
+  console.log(inAscOrder([1,6,10,18,2,4,20]))
 
