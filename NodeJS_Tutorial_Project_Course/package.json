@@ -1,0 +1,16 @@
+{
+  "name": "nodejs_tutorial_project_course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "alterrnativeExportSyntax.js",
+  "scripts": {
+    "start": "node app2.js",
+    "dev": "nodemon app2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15" 
+  }
+}
