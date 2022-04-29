@@ -1,1 +1,9 @@
 <h1>Componente de Videojuegos...</h1>
+<h1>{{ titleVideogame }}</h1>
+
+<ul>
+    <li *ngFor="let videojuego of videoJuegos; let i = index">{{ i + ' ' + videojuego.nombre }} 
+        <span *ngIf="videojuego.precio < 500">Barato</span>
+        <span *ngIf="videojuego.precio >= 500">Costoso</span>
+    </li>
+</ul>
