@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.year{
+    width: 100%;
+    height: 100vh;
+    padding: 3em 5em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2em;
+    background: cornflowerblue;
+}
+.container{
+    width: 300px;
+    border: 1px solid #ddd;
+    padding: 1em;
+    box-shadow: -.5px 3px 5px rgba(0,0,0,0.1);
+    background: #fff;
+}
+.title{
+    text-align: center;
+    margin: .2em 0;
+    color: #232323;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+.calendar{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.day{
+    list-style: none;
+    text-align: right;
+    padding: .3em .5em;
+    color: #444;
+    font-size: .7em;
+}
+.day-name{
+    background: #eee;
+    font-weight: 700;
+    text-align: center;
+}
+.first-day{
+    grid-column-start: 5;
+}
+.first-day-abr{
+    grid-column-start: 4;
+}
+.first-day-may{
+    grid-column-start: 6;
+}
+.first-day-jun{
+    grid-column-start: 2;
+}
+.first-day-jul{
+    grid-column-start: 4;
+}
+.first-day-ago{
+    grid-column-start: 7;
+}
+.first-day-sep{
+    grid-column-start: 3;
+}
+.first-day-oct{
+    grid-column-start: 5;
+}
+.first-day-dic{
+    grid-column-start: 3;
+}
