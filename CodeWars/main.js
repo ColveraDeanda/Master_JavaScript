@@ -296,7 +296,7 @@ function removeSmallest(numbers) {
     arr.shift()
     return arr
 }
-removeSmallest([5, 3, 2, 1, 4])
+//removeSmallest([5, 3, 2, 1, 4])
 
 
 
@@ -569,5 +569,45 @@ function inAscOrder(arr) {
     return true
   }
 
-  console.log(inAscOrder([1,6,10,18,2,4,20]))
+ // console.log(inAscOrder([1,6,10,18,2,4,20]));
 
+
+
+const plusMinus = (arr) => {
+    let positives = arr.filter(elem => elem > 0).length;
+    let negatives = arr.filter(elem => elem < 0).length;
+    let zeros = arr.length - (positives + negatives);
+
+    positives = (positives / arr.length).toFixed(6);
+    negatives = (negatives / arr.length).toFixed(6);
+    zeros = (zeros / arr.length).toFixed(6);
+
+
+    return `${positives}\n${negatives}\n${zeros}`
+
+    //console.log(positives);
+}
+
+//console.log(plusMinus([-4, 3, -9, 0, 4, 1]));
+
+function twoNumberSum(array, targetSum) {
+    console.log(array, targetSum);
+    let sum = 0
+    for(let i = 0; i <= array.length; i++){
+       for(let j = 0; j <= array.length; j++){
+          if(array[i] === array[j]) {
+              continue;
+          }
+         sum = array[i] + array[j]; 
+         if(sum == targetSum) {
+             console.log('ey');
+           return [array[i], array[j]];
+         }
+        }
+    }
+  
+    return [];
+    
+  }
+
+  console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10));
