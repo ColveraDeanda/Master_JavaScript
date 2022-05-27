@@ -549,10 +549,10 @@ let reverseWords = (str) => str.split(' ').reverse().join(' ');
 
 function checkExam(array1, array2) {
     let points = 0
-    for(let i = 0; i < array1.length; i++) {
-        if(array1[i] === array2[i]) {
+    for (let i = 0; i < array1.length; i++) {
+        if (array1[i] === array2[i]) {
             points += 4;
-        } else if(array2[i].length > 0 && array1[i] !== array2[i]) {
+        } else if (array2[i].length > 0 && array1[i] !== array2[i]) {
             points -= 1;
         }
     }
@@ -561,15 +561,15 @@ function checkExam(array1, array2) {
 
 
 function inAscOrder(arr) {
-    for(let i = 0; i < arr.length - 1; i++) {
-        if(arr[i] > arr[i + 1]) {
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (arr[i] > arr[i + 1]) {
             return false
         }
     }
     return true
-  }
+}
 
- // console.log(inAscOrder([1,6,10,18,2,4,20]));
+// console.log(inAscOrder([1,6,10,18,2,4,20]));
 
 
 
@@ -593,21 +593,102 @@ const plusMinus = (arr) => {
 function twoNumberSum(array, targetSum) {
     console.log(array, targetSum);
     let sum = 0
-    for(let i = 0; i <= array.length; i++){
-       for(let j = 0; j <= array.length; j++){
-          if(array[i] === array[j]) {
-              continue;
-          }
-         sum = array[i] + array[j]; 
-         if(sum == targetSum) {
-             console.log('ey');
-           return [array[i], array[j]];
-         }
+    for (let i = 0; i <= array.length; i++) {
+        for (let j = 0; j <= array.length; j++) {
+            if (array[i] === array[j]) {
+                continue;
+            }
+            sum = array[i] + array[j];
+            if (sum == targetSum) {
+                console.log('ey');
+                return [array[i], array[j]];
+            }
         }
     }
-  
-    return [];
-    
-  }
 
-  console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10));
+    return [];
+
+}
+
+// console.log(twoNumberSum([3, 5, -4, 8, 11, 1, -1, 6], 10));
+
+
+function tournamentWinner(competitions, results) {
+    let j = 0
+    let winnerTeams = [];
+    let currentTeam = [];
+    for (let i = 0; i < competitions.length; i++) {
+        results[j] = results[j] === 1 ? 0 : 1;
+        updateScore(competitions[i][results[j]]);
+        j++;
+    }
+
+    function updateScore(team) {
+        let findTeam = winnerTeams.findIndex((value) => value.teamName === team);
+        if (findTeam != -1) { // Team existe
+            winnerTeams[findTeam].points += 3;
+        } else {
+            winnerTeams.push({ teamName: team, points: 3 });
+        }
+    }
+    console.log(winnerTeams);
+
+    winnerTeams.sort((a, b) => a.points - b.points);
+
+    return winnerTeams[winnerTeams.length - 1].teamName;
+
+}
+
+function sortedSquaredArray(array) {
+    let arr = array.map(value => {
+        return value * value
+    })
+
+    return arr
+}
+
+//console.log(sortedSquaredArray([1, 2, 3, 5, 6, 8, 9]))
+
+function nonConstructibleChange(coins) {
+    let change = 0
+
+    if (coins.length == 0) return 1
+    coins.sort((a, b) => a - b);
+
+    for (let i = 0; i < coins.length - 1; i++) {
+        change += coins[i];
+        if (change + 1 < coins[i + 1]) {
+            return change + 1;
+        }
+    }
+}
+
+// console.log(nonConstructibleChange([1, 1, 1, 1, 1]));
+
+function threeNumberSum(array, targetSum) {
+    array.sort((a, b) => a - b);
+    let triplets = []
+    for (let i = 0; i < array.length; i++) {
+        let left = i + 1;
+        let right = array.length - 1;
+        while (left < right) {
+            let totalSum = array[i] + array[left] + array[right];
+            if (totalSum === targetSum) {
+                triplets.push([array[i], array[left], array[right]]);
+                left++;
+                right--;
+            } else if (totalSum < targetSum) {
+                left++;
+            } else if (totalSum > targetSum) {
+                right--;
+            }
+        }
+    }
+
+    triplets
+    return triplets;
+
+}
+
+//console.log(threeNumberSum([12, 3, 1, 2, -6, 5, -8, 6], 0))
+
