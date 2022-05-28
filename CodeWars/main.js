@@ -692,3 +692,42 @@ function threeNumberSum(array, targetSum) {
 
 //console.log(threeNumberSum([12, 3, 1, 2, -6, 5, -8, 6], 0))
 
+function isPalindrome(string) {
+    let stringReversed = string.split('').reverse();
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] !== stringReversed[i]) {
+            return false;
+        }
+    }
+
+    return true;
+
+}
+
+//console.log(isPalindrome('abcdcba'))
+
+function caesarCipherEncryptor(string, key) {
+    let arrayEncrypted = [];
+    let letter = '';
+    key = key % 26;
+    for(let i = 0 ; i < string.length; i++) {
+        let charCodeValue = string.charCodeAt(i);
+        charCodeValue += key;
+        if(charCodeValue <= 122) {
+            letter = String.fromCharCode(charCodeValue);
+            arrayEncrypted.push(letter);
+        } else {
+            letter = String.fromCharCode(97 + (charCodeValue % 122) - 1);
+            arrayEncrypted.push(letter);
+        }
+    }
+
+    return arrayEncrypted.join('');
+  
+}
+
+
+caesarCipherEncryptor('xyz', 2);
+
+
+
