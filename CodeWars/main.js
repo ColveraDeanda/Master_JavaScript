@@ -727,7 +727,29 @@ function caesarCipherEncryptor(string, key) {
 }
 
 
-caesarCipherEncryptor('xyz', 2);
+// caesarCipherEncryptor('xyz', 2);
+
+function smallestDifference(arrayOne, arrayTwo) {
+    let diff = 0;
+    let objDiff = [];
+    arrayOne.sort((a,b) => a - b);
+    arrayTwo.sort((a,b) => a - b);
+  
+    for(let i = 0; i < arrayOne.length; i++) {
+      for(let j = 0; j < arrayTwo.length; j++) {
+          diff = Math.abs(arrayOne[i]-arrayTwo[j]);
+          objDiff.push({difference: diff, elements: [arrayOne[i], arrayTwo[j]]});
+        if(diff === 0) {
+          return [arrayOne[i], arrayTwo[j]];
+        }
+      }
+    }
+    objDiff.sort((a,b) => a.difference - b.difference);
+    return [objDiff[0].elements[0], objDiff[0].elements[1]];
+
+  }
+
+  console.log(smallestDifference([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
 
 
 
