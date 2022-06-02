@@ -710,10 +710,10 @@ function caesarCipherEncryptor(string, key) {
     let arrayEncrypted = [];
     let letter = '';
     key = key % 26;
-    for(let i = 0 ; i < string.length; i++) {
+    for (let i = 0; i < string.length; i++) {
         let charCodeValue = string.charCodeAt(i);
         charCodeValue += key;
-        if(charCodeValue <= 122) {
+        if (charCodeValue <= 122) {
             letter = String.fromCharCode(charCodeValue);
             arrayEncrypted.push(letter);
         } else {
@@ -723,7 +723,7 @@ function caesarCipherEncryptor(string, key) {
     }
 
     return arrayEncrypted.join('');
-  
+
 }
 
 
@@ -732,24 +732,62 @@ function caesarCipherEncryptor(string, key) {
 function smallestDifference(arrayOne, arrayTwo) {
     let diff = 0;
     let objDiff = [];
-    arrayOne.sort((a,b) => a - b);
-    arrayTwo.sort((a,b) => a - b);
-  
-    for(let i = 0; i < arrayOne.length; i++) {
-      for(let j = 0; j < arrayTwo.length; j++) {
-          diff = Math.abs(arrayOne[i]-arrayTwo[j]);
-          objDiff.push({difference: diff, elements: [arrayOne[i], arrayTwo[j]]});
-        if(diff === 0) {
-          return [arrayOne[i], arrayTwo[j]];
+    arrayOne.sort((a, b) => a - b);
+    arrayTwo.sort((a, b) => a - b);
+
+    for (let i = 0; i < arrayOne.length; i++) {
+        for (let j = 0; j < arrayTwo.length; j++) {
+            diff = Math.abs(arrayOne[i] - arrayTwo[j]);
+            objDiff.push({ difference: diff, elements: [arrayOne[i], arrayTwo[j]] });
+            if (diff === 0) {
+                return [arrayOne[i], arrayTwo[j]];
+            }
         }
-      }
     }
-    objDiff.sort((a,b) => a.difference - b.difference);
+    objDiff.sort((a, b) => a.difference - b.difference);
     return [objDiff[0].elements[0], objDiff[0].elements[1]];
 
-  }
+}
 
-  console.log(smallestDifference([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))
+//console.log(smallestDifference([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]))\
 
 
+function runLengthEncoding(string) {
+    let encoding = ""
+    let count = 1;
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] !== string[i + 1] || count == 9) {
+            encoding += `${count}${string[i]}`;
+            count = 0;
+        }
+        count++;
+    }
+    return encoding;
+}
 
+// console.log(runLengthEncoding("AAAAAAAAAAAAABCCCCDD"));
+
+
+function isMonotonic(array) {
+
+    if (array[0] < array[array.length - 1]) {
+        console.log('hey');
+        for (let i = 0; i < array.length - 1; i++) {
+            if (array[i] > array[i + 1]) {
+                return false;
+            }
+        }
+    } else {
+        console.log('hey');
+        for (let j = 0; j < array.length - 1; j++) {
+            if (array[j] < array[j + 1]) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+
+}
+
+console.log(isMonotonic([1, 1, 2, 3, 4, 5, 5, 5, 6, 7, 8, 8, 9, 10, 11]));
