@@ -790,4 +790,39 @@ function isMonotonic(array) {
 
 }
 
-console.log(isMonotonic([1, 1, 2, 3, 4, 5, 5, 5, 6, 7, 8, 8, 9, 10, 11]));
+//console.log(isMonotonic([1, 1, 2, 3, 4, 5, 5, 5, 6, 7, 8, 8, 9, 10, 11]));
+
+/**
+ * Create a function that takes an integer as an argument and returns "Even" for even 
+ * numbers or "Odd" for odd numbers.
+ */
+let evenOrOdd = (number) => {
+    return number % 2 == 0 ? 'Even' : 'Odd';
+}
+
+//console.log(evenOrOdd(4));
+
+
+/**
+ * 1. Mapear el arreglo
+ */
+function squareDigits(number) {
+    let arr =  Array.from(String(number), Number); // Number to Array.
+    let square = arr.map((number) => number ** 2);
+    return Number(square.join(''))  ;
+}
+
+//console.log(squareDigits(1234));
+
+let wordsToMarks = (string) => {
+    let total = 0;
+    const alphabet = { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, g: 7, h: 8, i: 9, j: 10, k: 11, l: 12, m: 13, n: 14, o: 15, p: 16, q: 17, r: 18, s: 19, t: 20, u: 21, v: 22, w: 23, x: 24, y: 25, z: 26 };
+
+    for(let i = 0; i < string.length; i++) {
+        total += alphabet[string[i]];
+    }
+    
+    return total
+}
+
+wordsToMarks('love')
