@@ -11,13 +11,13 @@ let myDog = {
     name: 'nombre',
     legs: 3,
     tails: 1,
-    'my Friends': [1, 2, 3, 4],
+    'my-Friends': [1, 2, 3, 4],
     100: 50
 }
 // console.log(myDog.name)
 // console.log(myDog[100])
 // console.log(myDog['tails'])
-// console.log(myDog['my Friends'])
+console.log(myDog['my-Friends'])
 
 // Añadiendo new elemento al Objeto
 myDog.color = 'white'
@@ -46,8 +46,11 @@ function anyFunc(value) {
 /// hasOwnProperty = Sirve para verificar si existe una propiedad dentro del objeto.
 function checkObj(obj, checkProp) {
     let exist = obj.hasOwnProperty(checkProp)
+    exist
     return exist ? obj[checkProp] : 'Not Found'
 }
+
+console.log(checkObj(myDog, 'namer'))
 
 /**
  * Tu función siempre debe devolver el objeto de colección de registros completo.
@@ -180,10 +183,10 @@ function contarRecursivo(n) {
     let res = 0
     if (n == 0) return 0; // return hara que la funcion termine.
     res = n + contarRecursivo(n - 1)
-    return res
+    return res;
 }
 
-console.log(contarRecursivo(3))
+console.log(contarRecursivo(5))
 /*
  Para que la recursividad funciona:
    1. Tiene que tener una decision donde se termine el proceso.
@@ -248,7 +251,7 @@ const student = {
     '100d': 45
 }
 console.log(student.hasOwnProperty('nombre'))
-console.log('nombre' in student)
+console.log('nombref' in student)
 console.log('100d' in student)
 
 
